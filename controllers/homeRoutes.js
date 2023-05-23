@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
             ]
         });
@@ -30,15 +30,15 @@ router.get('/blog/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
                 {
                     model: Comment,
-                    attributes: ['id', 'content'],
+                    attributes: ['content', 'date_created'],
                     include: [
                         {
                             model: User,
-                            attributes: ['name']
+                            attributes: ['id', 'username']
                         }
                     ]
                 },
@@ -46,10 +46,44 @@ router.get('/blog/:id', async (req, res) => {
         });
 
         const blog = blogData.get({ plain: true });
-
+        const sessionId = req.session.user_id;
+        
         res.render('blog', {
             blog,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            session_id: sessionId
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/blog-edit/:id', withAuth, async (req, res) => {
+    try {
+        const blogData = await Blog.findByPk(req.params.id);
+
+        const blog = blogData.get({ plain: true });
+
+        res.render('blog-edit', {
+            blog,
+            logged_in: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/comment-edit/:id', withAuth, async (req, res) => {
+    try {
+        const commentData = await Comment.findByPk(req.params.id);
+
+        const comment = commentData.get({ plain: true });
+        const blogId = req.query.blogId;
+
+        res.render('comment-edit', {
+            comment,
+            blogId,
+            logged_in: true
         });
     } catch (err) {
         res.status(500).json(err);
@@ -59,7 +93,7 @@ router.get('/blog/:id', async (req, res) => {
 router.get('/dashboard/', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password', 'email'] },
+            attributes: { exclude: ['password'] },
             include: [
                 {
                     model: Blog

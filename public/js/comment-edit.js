@@ -1,23 +1,31 @@
+const getIdFromUrl = () => {
+    const urlParts = window.location.href.split('/');
+    const id = urlParts[urlParts.length - 1];
+    return id;
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form');
-  
+    const blogId = form.dataset.blogId;
+
     form.addEventListener ('submit', (e) => {
         e.preventDefault();
   
-        const blogTitle = document.querySelector('#blog-title').value;
-        const blogContent = document.querySelector('#blog-content').value;
+        const content = document.querySelector('#comment').value;
   
         const formData = {
-            title: blogTitle,
-            content: blogContent,
+            content: content,
+            blog_id: blogId
         }
   
         const dataString = JSON.stringify(formData);
   
         console.log(dataString);
+
+        const url = `/api/comment/${getIdFromUrl()}`;
   
-        fetch('/api/blog', {
-            method: 'POST',
+        fetch(url, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },

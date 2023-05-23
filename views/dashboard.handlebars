@@ -1,0 +1,25 @@
+<h2>{{user.username}}</h2>
+<p>Click on any blog post to edit!</p>
+
+{{#each user.blog as |blog|}}
+<div>
+    <a href="/blog-edit/{{blog.id}}">{{blog.title}}</a>
+    <p>{{blog.content}}</p>
+    <p>{{blog.date_created}}</p>
+</div>
+{{/each}}
+
+<form class="form">
+    <h3>Submit a new blog post!</h3>
+    <div class="field">
+        <label class="label" for="blog-title">Blog Title:</label>
+        <input class="input is-medium" type="text" id="blog-title" name="blog-title">
+    </div>
+    <div class="field">
+        <label class="label" for="blog-content">Blog Content:</label>
+        <input class="input is-medium" type="text" id="blog-content" name="blog-content">
+    </div>
+    <button class="button is-success is-medium" type="submit">Submit</button>
+</form>
+
+<script src="/js/dashboard.js"></script>

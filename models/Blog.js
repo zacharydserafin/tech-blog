@@ -22,6 +22,11 @@ Blog.init(
                 len: [1, 500],
             },
         },
+        date_created: {
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW,
+            allowNull: false,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
