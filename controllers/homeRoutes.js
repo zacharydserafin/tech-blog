@@ -34,7 +34,7 @@ router.get('/blog/:id', async (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['content', 'date_created'],
+                    attributes: ['id', 'content', 'date_created'],
                     include: [
                         {
                             model: User,
@@ -104,7 +104,7 @@ router.get('/dashboard/', withAuth, async (req, res) => {
             ]
         });
         const user = userData.get({ plain: true });
-
+        
         res.render('dashboard', {
             user,
             logged_in: true

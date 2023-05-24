@@ -1,5 +1,5 @@
 <h2>{{blog.title}}</h2>
-<p>by {{blog.user.username}} on {{blog.date_created}}</p>
+<p>by {{blog.user.username}} on {{format_date blog.date_created}}</p>
 <p>{{blog.content}}</p>
 
 {{#each blog.comments as |comment|}}
@@ -7,15 +7,15 @@
 <div>
     <h4>{{comment.user.username}}</h4>
     <p>{{comment.content}}</p>
-    <p>{{comment.date_created}}</p>
-    <button class="button is-success is-medium" id="comment-update" data-comment-id="{{comment.id}}" data-blog-id="{{blog.id}}">Edit</button>
-    <button class="button is-success is-medium" id="comment-delete" data-comment-id="{{comment.id}}">Delete</button>
+    <p>{{format_date comment.date_created}}</p>
+    <button class="button is-success is-medium comment-update" data-comment-id="{{comment.id}}" data-blog-id="{{../blog.id}}">Edit</button>
+    <button class="button is-success is-medium comment-delete" data-comment-id="{{comment.id}}">Delete</button>
 </div>
 {{else}}
 <div>
     <h4>{{comment.user.username}}</h4>
     <p>{{comment.content}}</p>
-    <p>{{comment.date_created}}</p>
+    <p>{{format_date comment.date_created}}</p>
 </div>
 {{/if}}
 {{/each}}

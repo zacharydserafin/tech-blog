@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: dataString,
         })
         .then(()=>{
-            window.location.href="/dashboard"
+            window.location.href=`/blog/${blogId}`
         })
         .then(data => console.log(data))
         .catch(error => console.error(error));

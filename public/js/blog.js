@@ -6,8 +6,8 @@ const getIdFromUrl = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form');
-    const commentEditButton = document.querySelector('#comment-update');
-    const commentDeleteButton = document.querySelector('#comment-delete');
+    const commentEditButton = document.querySelectorAll('.comment-update');
+    const commentDeleteButton = document.querySelectorAll('.comment-delete');
   
     form.addEventListener ('submit', (e) => {
         e.preventDefault();
@@ -39,32 +39,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if(commentEditButton) {
-        commentEditButton.addEventListener('click', (e) => {
-            const commentId = commentEditButton.dataset.commentId;
-            const blogId = commentEditButton.dataset.blogId;
-            const url = `/comment/${commentId}?blogId=${blogId}`;
-
-            fetch(url, {
-                method: 'GET',
-            })
-            .then(data => console.log(data))
-            .catch(error => console.error(error));
+        commentEditButton.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const commentId = button.dataset.commentId;
+                const blogId = button.dataset.blogId;
+                const url = `/comment-edit/${commentId}?blogId=${blogId}`;
+                window.location.href = url
+            });
         });
     };
 
     if (commentDeleteButton) {
-        commentDeleteButton.addEventListener('click', (e) => {
-            const commentId = commentDeleteButton.dataset.commentId;
-            const url = `/api/comment-edit/${commentId}`;
+        commentDeleteButton.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const commentId = button.dataset.commentId;
+                const url = `/api/comment/${commentId}`;
 
-            fetch(url, {
-                method: 'DELETE',
-            })
-            .then(()=>{
-                window.location.href=`/blog/${getIdFromUrl()}`
-            })
-            .then(data => console.log(data))
-            .catch(error => console.error(error));
+                fetch(url, {
+                    method: 'DELETE',
+                })
+                .then(()=>{
+                    window.location.href=`/blog/${getIdFromUrl()}`
+                })
+                .then(data => console.log(data))
+                .catch(error => console.error(error));
+            });
         });
     };
 });
