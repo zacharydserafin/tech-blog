@@ -1,0 +1,37 @@
+<h2>{{blog.title}}</h2>
+<p>by {{blog.user.username}} on {{format_date blog.date_created}}</p>
+<p>{{blog.content}}</p>
+
+{{#each blog.comments as |comment|}}
+{{#if (eq comment.user.id ../session_id)}}
+<div>
+    <h4>{{comment.user.username}}</h4>
+    <p>{{comment.content}}</p>
+    <p>{{format_date comment.date_created}}</p>
+    <button class="button is-success is-medium comment-update" data-comment-id="{{comment.id}}" data-blog-id="{{../blog.id}}">Edit</button>
+    <button class="button is-success is-medium comment-delete" data-comment-id="{{comment.id}}">Delete</button>
+</div>
+{{else}}
+<div>
+    <h4>{{comment.user.username}}</h4>
+    <p>{{comment.content}}</p>
+    <p>{{format_date comment.date_created}}</p>
+</div>
+{{/if}}
+{{/each}}
+
+
+
+{{#if logged_in}}
+<form class="form">
+    <h3>Leave a comment below!</h3>
+    <div class="field">
+        <input class="input is-medium" type="text" id="comment" name="comment">
+    </div>
+    <button class="button is-success is-medium" type="submit">Submit</button>
+</form>
+{{else}}
+<a href="/login">Login to leave a comment!</a>
+{{/if}}
+
+<script src="/js/blog.js"></script>

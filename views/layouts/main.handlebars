@@ -17,16 +17,16 @@
     </header>
     <nav class="columns">
         <div class="column is-one-fifth ">
-            <a href="/">Home</a>
+            <a href="/">Homepage</a>
+            <a href="/dashboard">Dashboard</a>
         </div>
         {{#if logged_in}}
-        <div class="column is-5 is-offset-6" >
-            <a href="/dashboard">Dashboard</a>
-            <a href="/" id="logout">Logout</a>
+        <div class="column is-5 is-offset-8" >
+            <a href="/" id="logout">Log Out</a>
         </div>
         {{else}}
         <div class="column is-5 is-offset-8">
-            <a href="/login">Login/Sign Up</a>
+            <a href="/login">Log In/Sign Up</a>
         </div>
         {{/if}}
     </nav>
