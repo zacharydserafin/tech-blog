@@ -1,20 +1,21 @@
-<h2 class="center-flex">{{user.username}}</h2>
+<h2 class="center-flex title-nl">{{user.username}}</h2>
 {{#if user.blogs}}
 <p class="center-flex">Click on any blog post to edit!</p>
 {{/if}}
 
 {{#each user.blogs as |blog|}}
 <div class="center-flex-vert border m5">
-    <a href="/blog-edit/{{blog.id}}">{{blog.title}}</a>
+    <a class="title" href="/blog-edit/{{blog.id}}">{{blog.title}}
+        <span class="date"> on {{format_date blog.date_created}}</span>
+    </a>
     <p>{{blog.content}}</p>
-    <p>{{format_date blog.date_created}}</p>
 </div>
 {{/each}}
 
 <div id="submit-container">
-    <h3 class="center-flex">Submit a new blog post!</h3>
-    <div class="column is-half">
-        <button class="button is-success is-medium is-fullwidth" id="create-blog">Create Post</button>
+    <h3 class="center-flex title-nl">Submit a new blog post!</h3>
+    <div class="column">
+        <button class="button is-link is-medium is-fullwidth" id="create-blog">Create Post</button>
     </div>
     <form class="form m5 border">
         <div class="field">
@@ -25,7 +26,7 @@
             <label class="label" for="blog-content">Blog Content:</label>
             <input class="input is-medium" type="text" id="blog-content" name="blog-content">
         </div>
-        <button class="button is-success is-medium" type="submit">Submit</button>
+        <button class="button is-link is-medium" type="submit">Submit</button>
     </form>
 </div>
 

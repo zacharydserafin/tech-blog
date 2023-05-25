@@ -1,5 +1,20 @@
+:root {
+    --violet: #8a2be2;
+    --violet2: #8c68ad;
+    --beige: #f9f0ff;
+    --border: #574b5e3a;
+}
+
+html {
+    background-color: var(--beige);
+}
+
 form {
     width: 98%;
+}
+
+a {
+    color:var(--violet);
 }
 
 .center-flex {
@@ -17,8 +32,21 @@ form {
     align-items: center;
 }
 
-.title {
+.site-title {
+    color:var(--violet2);
+    font-family: "Courier New", monospace;
+    font-weight: bolder;
     line-height: 2;
+}
+
+.title {
+    font-size: 200%;
+    color:var(--violet);
+}
+
+.title-nl {
+    font-size: 200%;
+    color:var(--violet2);
 }
 
 .m5 {
@@ -27,6 +55,15 @@ form {
 
 .border {
     padding: 5px;
-    border: 2px solid black;
+    border: 2px solid var(--border);
     border-radius: 5px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.date {
+    font-family: "Courier New", monospace;
+    font-size: 70%;
 }
