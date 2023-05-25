@@ -1,20 +1,23 @@
-<h2>{{user.username}}</h2>
+<h2 class="center-flex title-nl">{{user.username}}</h2>
 {{#if user.blogs}}
-<p>Click on any blog post to edit!</p>
+<p class="center-flex">Click on any blog post to edit!</p>
 {{/if}}
 
 {{#each user.blogs as |blog|}}
-<div>
-    <a href="/blog-edit/{{blog.id}}">{{blog.title}}</a>
+<div class="center-flex-vert border m5">
+    <a class="title" href="/blog-edit/{{blog.id}}">{{blog.title}}
+        <span class="date"> on {{format_date blog.date_created}}</span>
+    </a>
     <p>{{blog.content}}</p>
-    <p>{{format_date blog.date_created}}</p>
 </div>
 {{/each}}
 
 <div id="submit-container">
-    <h3>Submit a new blog post!</h3>
-    <button class="button is-success is-medium" id="create-blog">Create Post</button>
-    <form class="form">
+    <h3 class="center-flex title-nl">Submit a new blog post!</h3>
+    <div class="column">
+        <button class="button is-link is-medium is-fullwidth" id="create-blog">Create Post</button>
+    </div>
+    <form class="form m5 border">
         <div class="field">
             <label class="label" for="blog-title">Blog Title:</label>
             <input class="input is-medium" type="text" id="blog-title" name="blog-title">
@@ -23,7 +26,7 @@
             <label class="label" for="blog-content">Blog Content:</label>
             <input class="input is-medium" type="text" id="blog-content" name="blog-content">
         </div>
-        <button class="button is-success is-medium" type="submit">Submit</button>
+        <button class="button is-link is-medium" type="submit">Submit</button>
     </form>
 </div>
 
