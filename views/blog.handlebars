@@ -1,21 +1,23 @@
-<h2>{{blog.title}}</h2>
-<p>by {{blog.user.username}} on {{format_date blog.date_created}}</p>
-<p>{{blog.content}}</p>
+<div class="center-flex-vert border m5">
+    <h2>{{blog.title}}</h2>
+    <p>{{blog.user.username}} <span>on {{format_date blog.date_created}}</span></p>
+    <p>{{blog.content}}</p>
+</div>
 
 {{#each blog.comments as |comment|}}
 {{#if (eq comment.user.id ../session_id)}}
-<div>
-    <h4>{{comment.user.username}}</h4>
+<div class="center-flex-vert border m5">
+    <h4>{{comment.user.username}}<span> on {{format_date comment.date_created}}</span></h4>
     <p>{{comment.content}}</p>
-    <p>{{format_date comment.date_created}}</p>
-    <button class="button is-success is-medium comment-update" data-comment-id="{{comment.id}}" data-blog-id="{{../blog.id}}">Edit</button>
-    <button class="button is-success is-medium comment-delete" data-comment-id="{{comment.id}}">Delete</button>
+    <div class="m5">
+        <button class="button is-success is-medium comment-update" data-comment-id="{{comment.id}}" data-blog-id="{{../blog.id}}">Edit</button>
+        <button class="button is-danger is-medium comment-delete" data-comment-id="{{comment.id}}">Delete</button>
+    </div>
 </div>
 {{else}}
-<div>
-    <h4>{{comment.user.username}}</h4>
+<div class="center-flex-vert border m5">
+    <h4>{{comment.user.username}}<span> on {{format_date comment.date_created}}</span></h4>
     <p>{{comment.content}}</p>
-    <p>{{format_date comment.date_created}}</p>
 </div>
 {{/if}}
 {{/each}}
@@ -23,7 +25,7 @@
 
 
 {{#if logged_in}}
-<form class="form">
+<form class="form border m5">
     <h3>Leave a comment below!</h3>
     <div class="field">
         <input class="input is-medium" type="text" id="comment" name="comment">
@@ -31,7 +33,7 @@
     <button class="button is-success is-medium" type="submit">Submit</button>
 </form>
 {{else}}
-<a href="/login">Login to leave a comment!</a>
+<a class="center-flex m5" href="/login">Login to leave a comment!</a>
 {{/if}}
 
 <script src="/js/blog.js"></script>

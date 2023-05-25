@@ -1,0 +1,32 @@
+form {
+    width: 98%;
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.comment-update {
+    margin-right: 50px;
+}
+
+.center-flex-vert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    line-height: 2;
+}
+
+.m5 {
+    margin: 5px;
+}
+
+.border {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}

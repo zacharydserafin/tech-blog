@@ -1,5 +1,6 @@
-<form class="form">
-    <h3>Edit your blog post here:</h3>
+<h3 class="center-flex">Edit your blog post here:</h3>
+
+<form class="form m5 border">
     <div class="field">
         <label class="label" for="blog-title">Blog Title:</label>
         <input class="input is-medium" type="text" id="blog-title" name="blog-title" value="{{blog.title}}">
@@ -11,6 +12,10 @@
     <button class="button is-success is-medium" type="submit" id="blog-update">Edit Post</button>
 </form>
 
-<button class="button is-success is-medium" id="blog-delete">Delete Post</button>
+
+<div class="column is-half">
+    <button class="button is-danger is-medium is-fullwidth" id="blog-delete">Delete Post</button>
+</div>
+
 
 <script src="/js/blog-edit.js"></script>
