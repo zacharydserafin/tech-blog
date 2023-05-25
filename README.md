@@ -18,6 +18,8 @@ You can view posts via clicking on the title links on the homepage, but in order
 
 <img src="./assets/screenshot.png" alt="Screenshot of deployed application">
 
+<a href="https://sheltered-coast-95360.herokuapp.com/">Link to deployed application</a>
+
 ## <a id="license"></a>License 
 
 No license provided.
