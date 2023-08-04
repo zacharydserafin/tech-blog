@@ -67,3 +67,42 @@ a {
     font-family: "Courier New", monospace;
     font-size: 70%;
 }
+
+@media screen and (min-width: 576px) {
+    .blog-cards {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-left: 15%;
+    }
+    .hp-card {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .blog-cards {
+        margin-left: 8%;
+    }
+    .hp-card {
+        width: 45%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .blog-cards {
+        margin-left: 2%;
+    }
+    .hp-card {
+        width: 48%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .blog-cards {
+        margin-left: 0;
+    }
+    .hp-card {
+        width: 48%;
+    }
+}
