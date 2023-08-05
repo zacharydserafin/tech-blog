@@ -23,7 +23,8 @@ a {
 }
 
 .comment-update {
-    margin-right: 50px;
+    margin-top: 8px;
+    margin-bottom: 5px;
 }
 
 .center-flex-vert {
@@ -47,6 +48,46 @@ a {
 .title-nl {
     font-size: 200%;
     color:var(--violet2);
+}
+
+.blog-card {
+    width: 80%;
+}
+
+.comment-card {
+    width: 95%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.user-comment-text {
+    width: 80%;
+    word-wrap: break-word;
+}
+
+.comment-text {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.comment-buttons {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-border {
+    width: 100%;
+    height: 1px;
+    border: 1px solid var(--border);
+    margin: 10px 0px;
+}
+
+.new-comment-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .m5 {
@@ -78,6 +119,15 @@ a {
     .hp-card {
         width: 40%;
     }
+
+    .login-cards {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    .login-card {
+        width: 48%;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -87,6 +137,13 @@ a {
     .hp-card {
         width: 45%;
     }
+
+    .login-cards {
+        margin-left: 13%;
+    }
+    .login-card {
+        width: 80%;
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -94,6 +151,14 @@ a {
         margin-left: 2%;
     }
     .hp-card {
+        width: 48%;
+    }
+
+    .login-cards {
+        margin-left: 2%;
+        width: 100%;
+    }
+    .login-card {
         width: 48%;
     }
 }

@@ -1,45 +1,51 @@
-<div class="center-flex-vert border m5">
-    <h2 class="title-nl">{{blog.title}}</h2>
-    <p class="username">{{blog.user.username}}
-        <span class="date"> on {{format_date blog.date_created}}</span>
-    </p>
-    <p>{{blog.content}}</p>
-</div>
-
-{{#each blog.comments as |comment|}}
-{{#if (eq comment.user.id ../session_id)}}
-<div class="center-flex-vert border m5">
-    <h4 class="username">{{comment.user.username}}
-        <span class="date"> on {{format_date comment.date_created}}</span>
-    </h4>
-    <p>{{comment.content}}</p>
-    <div class="m5">
-        <button class="button is-link is-medium comment-update" data-comment-id="{{comment.id}}" data-blog-id="{{../blog.id}}">Edit</button>
-        <button class="button is-danger is-medium comment-delete" data-comment-id="{{comment.id}}">Delete</button>
+<div class="center-flex-vert">
+    <div class="center-flex-vert border m5 blog-card">
+        <h2 class="title-nl">{{blog.title}}</h2>
+        <p class="username">{{blog.user.username}}
+            <span class="date"> on {{format_date blog.date_created}}</span>
+        </p>
+        <p>{{blog.content}}</p>
     </div>
-</div>
-{{else}}
-<div class="center-flex-vert border m5">
-    <h4 class="username">{{comment.user.username}}
-        <span class="date"> on {{format_date comment.date_created}}</span>
-    </h4>
-    <p>{{comment.content}}</p>
-</div>
-{{/if}}
-{{/each}}
 
+    <div class="blog-border"></div>
 
+    {{#if logged_in}}
+    <form class="form border m5 new-comment-card">
+        <h3 class="title-nl m5">Leave a comment below!</h3>
+        <div class="field m5">
+            <input class="input is-medium" type="text" id="comment" name="comment">
+        </div>
+        <button class="button is-link is-medium m5" type="submit">Submit</button>
+    </form>
+    {{else}}
+    <a class="center-flex m5" href="/login">Login to leave a comment!</a>
+    {{/if}}
 
-{{#if logged_in}}
-<form class="form border m5">
-    <h3 class="title-nl">Leave a comment below!</h3>
-    <div class="field">
-        <input class="input is-medium" type="text" id="comment" name="comment">
+    {{#each blog.comments as |comment|}}
+    {{#if (eq comment.user.id ../session_id)}}
+    <div class="center-flex-vert border m5 comment-card">
+        <div class="user-comment-text">
+            <h4 class="username">{{comment.user.username}}
+                <span class="date"> on {{format_date comment.date_created}}</span>
+            </h4>
+            <p>{{comment.content}}</p>
+        </div>
+        <div class="comment-buttons">
+            <button class="button is-link is-small comment-update" data-comment-id="{{comment.id}}" data-blog-id="{{../blog.id}}">Edit</button>
+            <button class="button is-danger is-small comment-delete" data-comment-id="{{comment.id}}">Delete</button>
+        </div>
     </div>
-    <button class="button is-link is-medium" type="submit">Submit</button>
-</form>
-{{else}}
-<a class="center-flex m5" href="/login">Login to leave a comment!</a>
-{{/if}}
+    {{else}}
+    <div class="center-flex-vert border m5 comment-card">
+        <div class="comment-text">
+            <h4 class="username">{{comment.user.username}}
+                <span class="date"> on {{format_date comment.date_created}}</span>
+            </h4>
+            <p>{{comment.content}}</p>
+        </div>
+    </div>
+    {{/if}}
+    {{/each}}
+</div>
 
 <script src="/js/blog.js"></script>
