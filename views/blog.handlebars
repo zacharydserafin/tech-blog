@@ -12,10 +12,10 @@
     {{#if logged_in}}
     <form class="form border m5 new-comment-card">
         <h3 class="title-nl m5">Leave a comment below!</h3>
-        <div class="field m5">
+        <div class="field m5 comment-input-div">
             <input class="input is-medium" type="text" id="comment" name="comment">
+            <button class="button is-link is-medium m5" type="submit">Submit</button>
         </div>
-        <button class="button is-link is-medium m5" type="submit">Submit</button>
     </form>
     {{else}}
     <a class="center-flex m5" href="/login">Login to leave a comment!</a>

@@ -1,20 +1,20 @@
 <h3 class="center-flex title-nl">Edit your blog post here:</h3>
 
-<form class="form m5 border">
-    <div class="field">
-        <label class="label" for="blog-title">Blog Title:</label>
-        <input class="input is-medium" type="text" id="blog-title" name="blog-title" value="{{blog.title}}">
+<div class="center-flex-vert">
+    <form class="form m5 border blog-form">
+        <div class="field">
+            <label class="label" for="blog-title">Blog Title:</label>
+            <input class="input is-medium" type="text" id="blog-title" name="blog-title" value="{{blog.title}}">
+        </div>
+        <div class="field">
+            <label class="label" for="blog-content">Blog Content:</label>
+            <textarea class="textarea" type="text" id="blog-content" name="blog-content" rows="5">{{blog.content}}</textarea>
+        </div>
+        <button class="button is-link is-medium" type="submit" id="blog-update">Submit Changes</button>
+    </form>
+    <div class="column">
+        <button class="button is-danger is-medium edit-blog-button" id="blog-delete">Delete Post</button>
     </div>
-    <div class="field">
-        <label class="label" for="blog-content">Blog Content:</label>
-        <input class="input is-medium" type="text" id="blog-content" name="blog-content" value="{{blog.content}}">
-    </div>
-    <button class="button is-link is-medium" type="submit" id="blog-update">Edit Post</button>
-</form>
-
-
-<div class="column">
-    <button class="button is-danger is-medium is-fullwidth" id="blog-delete">Delete Post</button>
 </div>
 
 
