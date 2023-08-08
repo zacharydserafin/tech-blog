@@ -17,13 +17,18 @@ a {
     color:var(--violet);
 }
 
+textarea {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
 .center-flex {
     display: flex;
     justify-content: center;
 }
 
 .comment-update {
-    margin-right: 50px;
+    margin-top: 8px;
+    margin-bottom: 5px;
 }
 
 .center-flex-vert {
@@ -49,6 +54,71 @@ a {
     color:var(--violet2);
 }
 
+.blog-card {
+    width: 80%;
+}
+
+.comment-card {
+    width: 95%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.user-comment-text {
+    width: 80%;
+    padding-right: 10px;
+    word-wrap: break-word;
+}
+
+.comment-text {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.comment-buttons {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-input-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.comment-edit-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.comment-edit-button {
+    margin-top: 10px;
+}
+
+.blog-border {
+    width: 100%;
+    height: 1px;
+    border: 1px solid var(--border);
+    margin: 10px 0px;
+}
+
+.new-comment-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-blog-button, .edit-blog-button {
+    display: flex;
+    width: 100%;
+}
+
 .m5 {
     margin: 5px;
 }
@@ -66,4 +136,81 @@ a {
 .date {
     font-family: "Courier New", monospace;
     font-size: 70%;
+}
+
+@media screen and (min-width: 576px) {
+    .blog-cards {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-left: 15%;
+        min-width: 80%;
+    }
+    .hp-card {
+        width: 40%;
+    }
+
+    .login-cards {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    .login-card {
+        width: 48%;
+    }
+
+    .db-card {
+        width: 80%;
+    }
+    .new-blog-button {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .blog-cards {
+        margin-left: 8%;
+    }
+    .hp-card {
+        width: 45%;
+    }
+
+    .login-cards {
+        margin-left: 13%;
+    }
+    .login-card {
+        width: 80%;
+    }
+
+    .comment-edit-div {
+        align-items: flex-start;
+    }
+
+    .db-card {
+        width: 45%;
+    }
+    .blog-form {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .blog-cards {
+        margin-left: 2%;
+    }
+    .hp-card {
+        width: 48%;
+    }
+
+    .login-cards {
+        margin-left: 2%;
+        width: 100%;
+    }
+    .login-card {
+        width: 48%;
+    }
+
+    .db-card {
+        width: 48%;
+    }
 }

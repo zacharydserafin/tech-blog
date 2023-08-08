@@ -1,9 +1,13 @@
-{{#each blogs as |blog|}}
-<div class="center-flex-vert m5 border">
-    <a class="title" href="/blog/{{blog.id}}">{{blog.title}}</a>
-    <p>Created by 
-        <span class="username">{{blog.user.username}}</span>
-        <span class="date"> on {{format_date blog.date_created}}</span>
-    </p>
+<div class="center-flex">
+    <div class="blog-cards">
+        {{#each blogs as |blog|}}
+        <div class="center-flex-vert m5 border hp-card">
+            <a class="title" href="/blog/{{blog.id}}">{{blog.title}}</a>
+            <p>Created by 
+                <span class="username">{{blog.user.username}}</span>
+                <span class="date"> on {{format_date blog.date_created}}</span>
+            </p>
+        </div>
+        {{/each}}
+    </div>
 </div>
-{{/each}}
