@@ -1,8 +1,8 @@
 <div class="center-flex">
-    <div class="blog-cards">
+    <div class="blog-cards m5">
         {{#each blogs as |blog|}}
         <div class="center-flex-vert m5 border hp-card">
-            <a class="title" href="/blog/{{blog.id}}">{{blog.title}}</a>
+            <a class="title-text" href="/blog/{{blog.id}}">{{blog.title}}</a>
             <p>Created by 
                 <span class="username">{{blog.user.username}}</span>
                 <span class="date"> on {{format_date blog.date_created}}</span>

@@ -1,26 +1,35 @@
-<h2 class="center-flex title-nl">{{user.username}}</h2>
-<div class="blog-border"></div>
-{{#if user.blogs}}
-<p class="center-flex">Click on any blog post to edit!</p>
-{{/if}}
+<div class="center-flex db-user">
+    <h2 class="p5">var <span class="variable">currentUser</span> =</h2>
+    <h2 class="current-user p5">"{{user.username}}"<span class="text-black">;</span></h2>
+</div>
 
-<div class="center-flex">
-    <div class="blog-cards">
-        {{#each user.blogs as |blog|}}
-        <div class="center-flex-vert border m5 db-card">
-            <a class="title" href="/blog-edit/{{blog.id}}">{{blog.title}}
-                <span class="date"> on {{format_date blog.date_created}}</span>
-            </a>
-            <p>{{blog.content}}</p>
+<div class="db-border"></div>
+
+<div class="db-blogs">
+    {{#if user.blogs}}
+    <p class="center-flex p5 m0">Click on any blog title to edit!</p>
+    {{/if}}
+
+    <div class="center-flex">
+        <div class="blog-cards">
+            {{#each user.blogs as |blog|}}
+            <div class="center-flex-vert border m5 db-card">
+                <a class="title-text m0" href="/blog-edit/{{blog.id}}">{{blog.title}}
+                </a>
+                <p> on 
+                    <span class="date">{{format_date blog.date_created}}</span>
+                </p>
+                <p>{{blog.content}}</p>
+            </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
 </div>
 
-<div class="blog-border"></div>
+<div class="db-border"></div>
 
-<div id="submit-container">
-    <h3 class="center-flex title-nl">Submit a new blog post!</h3>
+<div id="submit-container" class="m5">
+    <h3 class="center-flex title-text">Submit a new blog post!</h3>
     <div class="column center-flex">
         <button class="button is-link is-medium new-blog-button" id="create-blog">Create Post</button>
     </div>
