@@ -1,6 +1,6 @@
 <div class="center-flex-vert">
     <div class="center-flex-vert border m5 blog-card">
-        <h2 class="title-nl">{{blog.title}}</h2>
+        <h2 class="title-text">{{blog.title}}</h2>
         <p class="username">{{blog.user.username}}
             <span class="date"> on {{format_date blog.date_created}}</span>
         </p>
@@ -11,7 +11,7 @@
 
     {{#if logged_in}}
     <form class="form border m5 new-comment-card">
-        <h3 class="title-nl m5">Leave a comment below!</h3>
+        <h3 class="title-text m5">Leave a comment below!</h3>
         <div class="field m5 comment-input-div">
             <input class="input is-medium" type="text" id="comment" name="comment">
             <button class="button is-link is-medium m5" type="submit">Submit</button>
